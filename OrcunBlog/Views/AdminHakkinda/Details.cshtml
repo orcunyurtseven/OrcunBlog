@@ -1,0 +1,35 @@
+﻿@model OrcunBlog.Models.Hakkinda
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Hakkında Detay Sayfası</h2>
+
+<div>
+    <h4>Hakkinda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HakkindaBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HakkindaBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HakkindaIcerik)
+        </dt>
+
+        <dd>
+           @Html.Raw(Model.HakkindaIcerik)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.HakkindaID }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

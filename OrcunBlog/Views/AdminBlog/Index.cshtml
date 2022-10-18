@@ -1,0 +1,59 @@
+﻿@model IEnumerable<OrcunBlog.Models.Blog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Yeni Blog Yazısı Oluştur", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogBaslik)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogOkunmaSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogOkunmaSuresi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogTarih)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogBaslik)
+        </td>
+      
+        <td>
+            <img class="img-responsive" width="75" src="@item.Foto" alt=".."/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogOkunmaSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogOkunmaSuresi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogTarih)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.BlogID }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.BlogID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BlogID })
+        </td>
+    </tr>
+}
+
+</table>

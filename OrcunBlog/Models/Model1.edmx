@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BloggerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogBaslik" Type="nvarchar" MaxLength="150" />
+          <Property Name="BlogIcerik" Type="nvarchar(max)" />
+          <Property Name="Foto" Type="nvarchar" MaxLength="150" />
+          <Property Name="BlogOkunmaSayisi" Type="int" />
+          <Property Name="BlogOkunmaSuresi" Type="int" />
+          <Property Name="BlogTarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Hakkinda">
+          <Key>
+            <PropertyRef Name="HakkindaID" />
+          </Key>
+          <Property Name="HakkindaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HakkindaBaslik" Type="nvarchar" MaxLength="150" />
+          <Property Name="HakkindaIcerik" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Uye">
+          <Key>
+            <PropertyRef Name="UyeID" />
+          </Key>
+          <Property Name="UyeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UyeAdSoyad" Type="nvarchar" MaxLength="75" />
+          <Property Name="UyeMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="UyeSifre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="BloggerModelStoreContainer">
+          <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hakkinda" EntityType="Self.Hakkinda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uye" EntityType="Self.Uye" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BloggerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogBaslik" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BlogIcerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Foto" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BlogOkunmaSayisi" Type="Int32" />
+          <Property Name="BlogOkunmaSuresi" Type="Int32" />
+          <Property Name="BlogTarih" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Hakkinda">
+          <Key>
+            <PropertyRef Name="HakkindaID" />
+          </Key>
+          <Property Name="HakkindaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HakkindaBaslik" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="HakkindaIcerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Uye">
+          <Key>
+            <PropertyRef Name="UyeID" />
+          </Key>
+          <Property Name="UyeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UyeAdSoyad" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="UyeMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UyeSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="BloggerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="Hakkindas" EntityType="Self.Hakkinda" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Uyes" EntityType="Self.Uye" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BloggerModelStoreContainer" CdmEntityContainer="BloggerEntities">
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="BloggerModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="BlogBaslik" ColumnName="BlogBaslik" />
+                <ScalarProperty Name="BlogIcerik" ColumnName="BlogIcerik" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="BlogOkunmaSayisi" ColumnName="BlogOkunmaSayisi" />
+                <ScalarProperty Name="BlogOkunmaSuresi" ColumnName="BlogOkunmaSuresi" />
+                <ScalarProperty Name="BlogTarih" ColumnName="BlogTarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hakkindas">
+            <EntityTypeMapping TypeName="BloggerModel.Hakkinda">
+              <MappingFragment StoreEntitySet="Hakkinda">
+                <ScalarProperty Name="HakkindaID" ColumnName="HakkindaID" />
+                <ScalarProperty Name="HakkindaBaslik" ColumnName="HakkindaBaslik" />
+                <ScalarProperty Name="HakkindaIcerik" ColumnName="HakkindaIcerik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BloggerModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uyes">
+            <EntityTypeMapping TypeName="BloggerModel.Uye">
+              <MappingFragment StoreEntitySet="Uye">
+                <ScalarProperty Name="UyeID" ColumnName="UyeID" />
+                <ScalarProperty Name="UyeAdSoyad" ColumnName="UyeAdSoyad" />
+                <ScalarProperty Name="UyeMail" ColumnName="UyeMail" />
+                <ScalarProperty Name="UyeSifre" ColumnName="UyeSifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

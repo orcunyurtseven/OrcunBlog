@@ -1,0 +1,67 @@
+﻿@model OrcunBlog.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Blog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogIcerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogIcerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogOkunmaSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogOkunmaSayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogOkunmaSuresi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogOkunmaSuresi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogTarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogTarih)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
