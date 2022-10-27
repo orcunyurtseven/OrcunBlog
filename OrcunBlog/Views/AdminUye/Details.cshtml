@@ -1,0 +1,43 @@
+﻿@model OrcunBlog.Models.Uye
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Üye Detay Sayfası</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UyeAdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UyeAdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UyeMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UyeMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UyeSifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UyeSifre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UyeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,42 +1,110 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <title>OrcunBlog</title>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+
+    <!-- Theme CSS -->
+    <link href="~/Content/devblog-bs5-v2.0/assets/css/theme-2.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Login Page</title>
+        <!--Made with love by Mutiullah Samim -->
+        <!--Bootsrap 4 CDN-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!--Fontawesome CDN-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+
+    </head>
+
+    <body>
+
+        <header class="header text-center">
+            <h1 class="blog-name pt-lg-4 mb-0"><a class="no-text-decoration" href="/Blog/">Orcun Blog</a></h1>
+
+            <nav class="navbar navbar-expand-lg navbar-dark">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="navigation" class="collapse navbar-collapse flex-column">
+                    <div class="profile-section pt-3 pt-lg-0">
+                        <img class="profile-image mb-3 rounded-circle mx-auto" src="~/Content/devblog-bs5-v2.0/assets/images/profile2.png" alt="image">
+
+                        <div class="bio mb-3">
+                            Merhabalar benim ismim Orcun.
+                            Bu proje asp .net MVCS ile dinamik blog sitesi geliştirmek için kodlanmıştır. <br><a href="~/Blog/Hakkinda">Daha Fazla Bilgi İçin</a>
+                        </div>
+                        <!--//bio-->
+                        <ul class="social-list list-inline py-3 mx-auto">
+
+                            <li class="list-inline-item"><a href="https://www.twitter.com/"><i class="fab fa-twitter fa-fw"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/in/orcun-yurtseven-8432655b/"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+                            <li class="list-inline-item"><a href="https://github.com/orcunyurtseven"><i class="fab fa-github-alt fa-fw"></i></a></li>
+                            <li class="list-inline-item"><a href="https://stackoverflow.com/users/20329635/orcun-yurtseven"><i class="fab fa-stack-overflow fa-fw"></i></a></li>
+                            <li class="list-inline-item"><a href="https://codepen.io/orcunyurtseven"><i class="fab fa-codepen fa-fw"></i></a></li>
+                        </ul>
+                        <!--//social-list-->
+                        <hr>
+                    </div><!--//profile-section-->
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/AdminUye/Login">
+                            <i class="fas fa-user fa-fw me-2"></i>Üye Girişi
+                        </a>
+
+                    </li>
+
+                    <ul class="navbar-nav flex-column text-start">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/Blog/Index"><i class="fas fa-home fa-fw me-2"></i>Ana Sayfa</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Blog/Hakkinda"><i class="fas fa-user fa-fw me-2"></i>Hakkımda</a>
+                        </li>
+                    </ul>
+
+                    <div class="my-2 my-md-3">
+                        <a class="btn btn-primary" href="https://instagram.com/orcunyurtseven" target="_blank">Takipte Kalın</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="main-wrapper">
+
+            @RenderBody()
+
+
+        </div><!--//main-wrapper-->
+        <!-- Javascript -->
+        <script src="~/Content/devblog-bs5-v2.0/assets/assets/plugins/popper.min.js"></script>
+        <script src="~/Content/devblog-bs5-v2.0/assets/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+    </body>
 </html>
+

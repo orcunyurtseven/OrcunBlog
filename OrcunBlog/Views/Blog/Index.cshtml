@@ -1,0 +1,54 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList<OrcunBlog.Models.Blog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@foreach (var item in Model)
+{
+
+
+
+
+    <section class="blog-list px-3 py-5 p-md-5">
+        <div class="container single-col-max-width">
+            <div class="item mb-5">
+                <div class="row g-3 g-xl-0">
+                    <div class="col-2 col-xl-3">
+                        <img class="img-fluid post-thumb " src="@item.Foto" alt="image">
+                    </div>
+                    <div class="col">
+                        <h3 class="title mb-1"><a class="text-link" href="@item.BlogBaslik"></a></h3>
+                        <div class="meta mb-1"><span class="date">@item.BlogTarih tarihinde yayınlanmıştır </span><span class="time">@item.BlogOkunmaSuresi dk okunma süresi </span><span class="comment"><a class="text-link" href="#">@item.BlogOkunmaSayisi kişi tarafından okunmuştur. </a></span></div>
+                        @if (item.BlogIcerik.Length > 300)
+                        {
+                            <div class="intro">
+                                @Html.Raw(item.BlogIcerik.Substring(0, 300))...
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="intro">
+                                @Html.Raw(item.BlogIcerik)
+                            </div>
+                        }
+
+                        <a class="more-link" href="/Blog/BlogDetay/@item.BlogID">Devamını Oku &rarr;</a>
+                    </div><!--//col-->
+                </div><!--//row-->
+            </div>
+        </div>
+    </section>
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div class="container">
+    <div class="col-md-8">
+        <div class="pageList pagination-1g"
+             @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.Classic)
+    </div>
+    </div>

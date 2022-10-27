@@ -1,0 +1,22 @@
+﻿@model IEnumerable<OrcunBlog.Models.Hakkinda>
+@{
+    ViewBag.Title = "Hakkinda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+
+
+
+
+<h2>Hakkinda</h2>
+
+    <article class="about-section py-5">
+		    <div class="container">
+			    <h2 class="title mb-3">@item.HakkindaBaslik </h2>
+			    @Html.Raw(item.HakkindaIcerik)
+			   
+		    </div>
+	    </article><!--//about-section-->
+}

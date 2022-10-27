@@ -1,0 +1,34 @@
+﻿@model OrcunBlog.Models.Blog
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<article class="blog-post px-3 py-5 p-md-5">
+    <div class="container">
+        <header class="blog-post-header">
+            <h2 class="title mb-2" @Model.BlogBaslik</h2>
+            <div class="meta mb-3">
+                <span class="date">@Model.BlogTarih Tarihinde yayınlanmıştır. </span>
+                <span class="time">@Model.BlogOkunmaSuresi </span>
+                <span class="comment">
+                    <a class="text-link" href="#">@Model.BlogOkunmaSayisi  </a>
+                </span>
+            </div>
+        </header>
+        <div class="blog-post-body">
+            @Html.Raw(Model.BlogIcerik)
+        </div>
+    </div>
+</article>
+<script src="~/Content/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $.ajax({
+            url:'/Blog/OkunmaArttir',
+            data: { blogid:@Model.BlogID},
+            type:'POST'
+        });
+    })
+</script>
